@@ -41,11 +41,6 @@ export function RecipesList() {
         const stateData = shortRecipes.slice(5);
         deleteItems(dataForStore);
         setShortRecipes(stateData);
-        // dataForStore.forEach((element) => {
-        //   if (idArray.includes(element.id)) {
-        //     console.log(element.id);
-        //   }
-        // });
       }
     }
 
