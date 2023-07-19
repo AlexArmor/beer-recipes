@@ -75,9 +75,6 @@ export function RecipesList() {
     setIdArray([]);
   };
 
-  console.log("recipes", recipes);
-  console.log("shortRecipes", shortRecipes);
-
   return (
     <div className={css.main}>
       <ul className={css.list}>
