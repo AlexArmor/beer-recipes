@@ -22,14 +22,12 @@ export function RecipesList() {
   useEffect(() => {
     if (recipes.length) {
       if (recipes.length < 15) {
-        console.log("Зашёл в IF ELSE где проверка на длину");
         setPage();
         fetchRecipes();
       }
       const renderData = recipes.slice(0, 15);
       setShortRecipes(renderData);
     } else {
-      console.log("Зашёл в ELSE");
       fetchRecipes();
     }
 
@@ -43,6 +41,11 @@ export function RecipesList() {
         const stateData = shortRecipes.slice(5);
         deleteItems(dataForStore);
         setShortRecipes(stateData);
+        // dataForStore.forEach((element) => {
+        //   if (idArray.includes(element.id)) {
+        //     console.log(element.id);
+        //   }
+        // });
       }
     }
 
@@ -52,6 +55,16 @@ export function RecipesList() {
       window.removeEventListener("scroll", getMoreByScroll);
     };
   }, [recipes]);
+
+  useEffect(() => {
+    const idExceptions = [];
+    shortRecipes.forEach((item) => {
+      if (idArray.includes(item.id)) {
+        idExceptions.push(item.id);
+      }
+    });
+    setIdArray(idExceptions);
+  }, [shortRecipes]);
 
   const onRightButtonClick = (event, id) => {
     event.preventDefault();
@@ -79,12 +92,9 @@ export function RecipesList() {
     <div className={css.main}>
       <ul className={css.list}>
         {shortRecipes.map((item) => (
-          <li
-            className={css.itemList}
-            key={item.id}
-            onClick={() => navigate("/recipe", { state: { item } })}
-          >
+          <li className={css.itemList} key={item.id}>
             <div
+              onClick={() => navigate("/recipe", { state: { item } })}
               className={`${css.container} ${
                 idArray.includes(item.id) ? css.active : undefined
               }`}
