@@ -1,0 +1,72 @@
+.main {
+  padding: 40px;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.container {
+  display: flex;
+  padding: 20px;
+  width: 700px;
+  height: 150px;
+  margin: 0 auto;
+  gap: 30px;
+  cursor: pointer;
+  outline: 1px solid lightblue;
+}
+
+.container:hover {
+  outline: 2px solid blue;
+}
+
+.active {
+  background-color: rgba(67, 195, 255, 0.5);
+  outline-color: blue;
+}
+
+.image {
+  width: 50px;
+  height: 110px;
+}
+
+.beerIcon {
+  margin: 0 auto;
+}
+
+.info {
+  width: 580px;
+}
+
+.title {
+  margin-bottom: 5px;
+}
+
+.description {
+  margin-bottom: 5px;
+}
+
+.btn {
+  position: fixed;
+  top: 30px;
+  right: 50px;
+  padding: 20px;
+  width: 100px;
+  font-size: 16px;
+  border-radius: 5px;
+}
+
+.btn:disabled {
+  color: dimgray;
+  background-color: default;
+  cursor: default;
+}
+
+.btn:enabled {
+  color: white;
+  background-color: red;
+  cursor: pointer;
+}
